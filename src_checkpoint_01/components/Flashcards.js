@@ -14,14 +14,13 @@ class Flashcards extends Component {
     // console.warn("");
     // return <ReviewScreen />;
     // return <NewCardScreen />;
-    return <DeckScreen />;
+    return <DeckScreen/>;
   }
   render() {
     return (
       <View style={styles.container}>
-      <Heading>
-      {this._renderScene()}
-      </Heading>
+        <Heading />
+        {this._renderScene()}
       </View>
     );
   }
