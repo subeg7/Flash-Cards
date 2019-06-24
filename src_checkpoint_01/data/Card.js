@@ -1,10 +1,9 @@
-import md5 from "md5";
 class Card {
 constructor(front, back, deckID) {
 this.front = front;
 this.back = back;
 this.deckID = deckID;
-this.id = md5(front + back + deckID);
+this.id = front + back + deckID;
 }
 setFromObject(ob) {
 this.front = ob.front;

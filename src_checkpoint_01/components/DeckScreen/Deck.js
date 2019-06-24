@@ -7,7 +7,8 @@ import colors from "./../../styles/colors";
 class Deck extends Component {
 static displayName = "Deck";
 _review = () => {
-console.warn("Not implemented");
+    console.warn("Actual reviews not implemented");
+    this.props.navigation.navigate("Review");
 };
 _addCards = () => {
 console.warn("Not implemented");

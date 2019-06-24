@@ -20,11 +20,7 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Flash Cards</Text>
-        <Text style={styles.instructions}>Easier way to memorize</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+      <FlashCards/>
     );
   }
 }
