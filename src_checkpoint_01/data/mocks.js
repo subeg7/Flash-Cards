@@ -18,4 +18,4 @@ deck.addCard(new CardModel("die Frau", "the woman", deck.id));
 return deck;
 });
 let MockDeck = MockDecks[0];
-export { MockReviews, MockCards, MockCard, MockDecks, MockDeck };
+export { MockReviews, MockCards, MockCard, MockDecks, MockDeck };   

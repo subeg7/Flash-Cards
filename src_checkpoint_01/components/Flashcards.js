@@ -3,8 +3,15 @@ import { StyleSheet, View } from "react-native";
 
 import Heading from "./Header";
 import DeckScreen from "./DeckScreen";
+import {StackNavigator} from 'react-navigation';
 import NewCardScreen from "./NewCardScreen";
 import ReviewScreen from "./ReviewScreen";
+
+let navigator = StackNavigator({
+    Home: { screen: DeckScreen },
+    Review: { screen: ReviewScreen },
+    CardCreation: { screen: NewCardScreen }
+});
 
 class Flashcards extends Component {
     _renderScene() {
@@ -24,4 +31,4 @@ class Flashcards extends Component {
     }
     const styles = StyleSheet.create({ container: { flex: 1, marginTop: 30 } });
     
-    export default Flashcards;
+    export default navigator;

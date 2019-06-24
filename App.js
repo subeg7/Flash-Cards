@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-
+import FlashCards from './src_checkpoint_01/components/Flashcards'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -21,8 +21,8 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>FlashCards</Text>
-        <Text style={styles.instructions}>Easier way to Memorize</Text>
+        <Text style={styles.welcome}>Flash Cards</Text>
+        <Text style={styles.instructions}>Easier way to memorize</Text>
         <Text style={styles.instructions}>{instructions}</Text>
       </View>
     );
