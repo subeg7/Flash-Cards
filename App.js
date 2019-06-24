@@ -9,7 +9,9 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import FlashCards from './src_checkpoint_01/components/Flashcards'
-// import NavTest from './tests/navtest'
+import NavTest from './tests/navtest'
+import DeckScreen from './src_checkpoint_01/components/DeckScreen'
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -21,7 +23,7 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <FlashCards/>
+      <DeckScreen/>
     );
   }
 }
