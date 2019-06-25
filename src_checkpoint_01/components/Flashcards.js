@@ -10,33 +10,32 @@ import ReviewScreen from "./ReviewScreen";
 
 class App extends Component{
   render(){
-    return(
-      <AppConatiner/>
-    );
+    return <AppConatiner/>
   }
 }
 
 class Flashcards extends Component {
-  _testNav(){
-    // this.props.navigation.navigate("Review");
-    if(!(this.props.navigation)) console.warn("navigation obj is empty");
-    else console.warn("Success navigating");
+  changeScreen=()=>{
+    this.props.navigation.navigate("Review");
   }
+
+
   _renderScene() {
-    // console.warn("");
     // return <ReviewScreen />;
     // return <NewCardScreen />;
-    return <DeckScreen/>;
+    return <DeckScreen changeScreen={this.changeScreen}/>;
   }
   render() {
     return (
       <View style={styles.container}>
         <Heading />
-        <Button title="test_nav"  onPress={this._testNav}/>
+        {this._renderScene()}
       </View>
     );
   }
 }
+// <Button title="test_nav"  onPress={this._testNav}/>
+
 // {this._renderScene()}
 
 const AppNavigator = createStackNavigator({
@@ -46,7 +45,7 @@ const AppNavigator = createStackNavigator({
 });
 
 const AppConatiner = createAppContainer(AppNavigator);
+
+
 const styles = StyleSheet.create({ container: { flex: 1, marginTop: 30 } });
-
-
 export default App;

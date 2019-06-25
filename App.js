@@ -25,9 +25,9 @@ export default class App extends Component<Props> {
   render() {
     return (
       // <ReviewScreen/>
-      // <FlashCards/>
+      <FlashCards/>
       // <DeckScreen/>
-      <NavTest/>
+      // <NavTest/>
     );
   }
 }

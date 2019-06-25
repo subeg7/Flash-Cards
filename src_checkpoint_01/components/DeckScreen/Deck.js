@@ -9,13 +9,11 @@ import colors from "./../../styles/colors";
 class Deck extends Component {
   static displayName = "Deck";
 
-  _review = () => {
-    // console.warn(this.props);
-    // this.props.navigation.navigate("Review");
-
-    if(!this.props.navigation) console.warn("navigation obj is empty");
-    else console.warn("Success navigating");
-  };
+  _testNav=()=>{
+    this.props.navigation.navigate("Review");
+    // if(!(this.props.navigation)) console.warn("navigation obj is empty");
+    // else console.warn("Success navigating");
+  }
 
   _addCards = () => {
     console.warn("Adding Card Not implemented");
@@ -25,7 +23,7 @@ class Deck extends Component {
     return (
       <View style={styles.deckGroup}>
 
-        <Button style={styles.deckButton} onPress={this._review}>
+        <Button style={styles.deckButton} onPress={this.props.changeScreen}>
           <NormalText>
             {this.props.deck.name}: {this.props.count} cards
           </NormalText>
