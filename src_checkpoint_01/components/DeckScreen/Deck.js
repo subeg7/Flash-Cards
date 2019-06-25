@@ -23,13 +23,13 @@ class Deck extends Component {
     return (
       <View style={styles.deckGroup}>
 
-        <Button style={styles.deckButton} onPress={this.props.changeScreen}>
+        <Button style={styles.deckButton} onPress={()=>this.props.navigation.navigate("Review")}>
           <NormalText>
             {this.props.deck.name}: {this.props.count} cards
           </NormalText>
         </Button>
 
-        <Button style={styles.editButton} onPress={this._addCards}>
+        <Button style={styles.editButton} onPress={()=>this.props.navigation.navigate("CardCreation")}>
           <NormalText>+</NormalText>
         </Button>
       </View>

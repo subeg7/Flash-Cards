@@ -50,11 +50,11 @@ class NewCard extends Component {
                 </Button>
 
                 <View style={styles.buttonRow}>
-                    <Button style={styles.secondaryButton} onPress={this._doneCreating}>
+                    <Button style={styles.secondaryButton} onPress={()=>this.props.navigation.navigate("Home")}>
                      <NormalText>Done</NormalText>
                     </Button>
 
-                    <Button style={styles.secondaryButton} onPress={this._reviewDeck}>
+                    <Button style={styles.secondaryButton} onPress={()=>this.props.navigation.navigate("Review")}>
                      <NormalText>Review Deck</NormalText>
                     </Button>
                 </View>

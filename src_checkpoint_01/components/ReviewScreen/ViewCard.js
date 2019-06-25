@@ -43,7 +43,8 @@ class ViewCard extends Component {
           this.state.showingAnswer,
           this.state.wasCorrect,
           this._continue,
-          this.props.quit
+          this.props.quit,
+          this.props.navigation
         )}
       </View>
     );

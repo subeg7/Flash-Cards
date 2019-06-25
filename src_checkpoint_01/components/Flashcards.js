@@ -23,7 +23,7 @@ class Flashcards extends Component {
   _renderScene() {
     // return <ReviewScreen />;
     // return <NewCardScreen />;
-    return <DeckScreen changeScreen={this.changeScreen}/>;
+    return <DeckScreen navigation={this.props.navigation}/>;
   }
   render() {
     return (

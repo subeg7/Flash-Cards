@@ -19,7 +19,7 @@ class DecksScreen extends Component {
     }
 
     return this.state.decks.map(deck => {
-      return <Deck deck={deck} count={deck.cards.length} key={deck.id} changeScreen={this.props.changeScreen} />;
+      return <Deck deck={deck} count={deck.cards.length} key={deck.id} navigation={this.props.navigation}/>;
     });
   }
 
