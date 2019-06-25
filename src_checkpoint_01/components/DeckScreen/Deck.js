@@ -10,11 +10,15 @@ class Deck extends Component {
   static displayName = "Deck";
 
   _review = () => {
-    console.warn("Not implemented");
+    // console.warn(this.props);
+    // this.props.navigation.navigate("Review");
+
+    if(!this.props.navigation) console.warn("navigation obj is empty");
+    else console.warn("Success navigating");
   };
 
   _addCards = () => {
-    console.warn("Not implemented");
+    console.warn("Adding Card Not implemented");
   };
 
   render() {
