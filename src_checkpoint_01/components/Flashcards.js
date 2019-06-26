@@ -1,16 +1,24 @@
 import React, { Component } from "react";
 import { StyleSheet, View,Text,AppRegistry,Button } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import {  } from 'react-native'
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import { reducer } from "./../reducers";
 
 import Header from "./Header";
 import DeckScreen from "./DeckScreen";
 import NewCardScreen from "./NewCardScreen";
 import ReviewScreen from "./ReviewScreen";
 
+let store = createStore(reducer);
+
 class App extends Component{
   render(){
-    return <AppConatiner/>
+    return(
+    <Provider store={store}>
+      <AppConatiner/>
+    </Provider>
+  );
   }
 }
 

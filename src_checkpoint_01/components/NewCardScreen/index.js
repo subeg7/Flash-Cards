@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
+import { connect } from "react-redux";
 
 import DeckModel from "./../../data/Deck";
 import Button from "../Button";
@@ -8,25 +9,38 @@ import NormalText from "../NormalText";
 import colors from "./../../styles/colors";
 
 class NewCard extends Component {
+  static navigationOptions = { title: "Create Card" };
+
+  static initialState = { front: "", back: "" };
+
     constructor(props) {
         super(props);
-        this.state = { front: "", back: "" };
+        this.state = this.initialState;
     }
-    _handleFront = text => {
-        this.setState({ front: text });
-    };
-    _handleBack = text => {
+    _deckID = () => {
+   return this.props.navigation.state.params.deckID;
+   };
+
+   _handleFront = text => {
+     this.setState({ front: text });
+   };
+
+   _handleBack = text => {
      this.setState({ back: text });
-    };
-    _createCard = () => {
-     console.warn("Not implemented");
-    };
-    _reviewDeck = () => {
-     console.warn("Not implemented");
-    };
-    _doneCreating = () => {
-     console.warn("Not implemented");
-    };
+   };
+
+   _createCard = () => {
+     this.props.createCard(this.state.front, this.state.back, this._deckID());
+     this.props.navigation.navigate("CardCreation", { deckID: this._deckID() });
+   };
+
+   _reviewDeck = () => {
+     this.props.navigation.navigate("Review");
+   };
+
+   _doneCreating = () => {
+     this.props.navigation.navigate("Home");
+   };
 
     render() {
         return (
@@ -69,4 +83,16 @@ createButton: { backgroundColor: colors.green },
 secondaryButton: { backgroundColor: colors.blue },
 buttonRow: { flexDirection: "row" }
 });
-export default NewCard;
+
+const mapStateToProps = state => {
+  return { decks: state.decks };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    createCard: (front, back, deckID) => {
+      dispatch(addCard(front, back, deckID));
+    }
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(NewCard);
