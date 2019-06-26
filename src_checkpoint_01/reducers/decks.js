@@ -12,7 +12,7 @@ function decksWithNewCard(oldDecks, card) {
 }
 
 const reducer = (state = [], action) => {
-  console.warn("Changes are not persisted to disk");
+  console.warn("action revieved is:"+ action.type);
 
   switch (action.type) {
     case ADD_DECK:

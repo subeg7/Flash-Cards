@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 
 import { MockDecks } from "./../../data/Mocks";
+import { addDeck, reviewDeck } from "./../../actions/creators";
 import Deck from "./Deck";
 import DeckCreation from "./DeckCreation";
 

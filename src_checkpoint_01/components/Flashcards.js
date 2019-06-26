@@ -3,14 +3,14 @@ import { StyleSheet, View,Text,AppRegistry,Button } from "react-native";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import { reducer } from "./../reducers";
+import { Reducer } from "./../reducers";
 
 import Header from "./Header";
 import DeckScreen from "./DeckScreen";
 import NewCardScreen from "./NewCardScreen";
 import ReviewScreen from "./ReviewScreen";
 
-let store = createStore(reducer);
+let store = createStore(Reducer);
 
 class App extends Component{
   render(){
@@ -53,7 +53,11 @@ let headerOptions = {
 const AppNavigator = createStackNavigator({
   Home: { screen: Flashcards, navigationOptions:{title:"All Cards"}},
   Review: { screen: ReviewScreen,navigationOptions:{title:"Review"} },
-  CardCreation: { screen: NewCardScreen,navigationOptions:{title:"Create Card"} }
+  CardCreation: {
+   screen: NewCardScreen,
+   path: "createCard/:deckID",
+   navigationOptions: headerOptions
+ }
 });
 
 const AppConatiner = createAppContainer(AppNavigator);

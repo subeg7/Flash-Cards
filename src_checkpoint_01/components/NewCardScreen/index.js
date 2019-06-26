@@ -3,6 +3,8 @@ import { StyleSheet, View } from "react-native";
 import { connect } from "react-redux";
 
 import DeckModel from "./../../data/Deck";
+import { addCard } from "./../../actions/creators";
+
 import Button from "../Button";
 import LabeledInput from "../LabeledInput";
 import NormalText from "../NormalText";
@@ -11,14 +13,15 @@ import colors from "./../../styles/colors";
 class NewCard extends Component {
   static navigationOptions = { title: "Create Card" };
 
-  static initialState = { front: "", back: "" };
+  // static initialState = { front: "", back: "" };
 
     constructor(props) {
         super(props);
-        this.state = this.initialState;
+        this.state = { front: "", back: "" };
     }
     _deckID = () => {
-   return this.props.navigation.state.params.deckID;
+      // this.props.navigation.navigate("Home");
+   // return this.props.navigation.state.params.deckID;
    };
 
    _handleFront = text => {

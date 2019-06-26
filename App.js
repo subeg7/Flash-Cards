@@ -8,10 +8,11 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import FlashCards from './src_checkpoint_01/components/Flashcards'
+// import FlashCards from './src_checkpoint_01/components/Flashcards'
 import NavTest from './tests/navtest'
-import DeckScreen from './src_checkpoint_01/components/DeckScreen'
-import ReviewScreen from './src_checkpoint_01/components/ReviewScreen'
+// import DeckScreen from './src_checkpoint_01/components/DeckScreen'
+// import ReviewScreen from './src_checkpoint_01/components/ReviewScreen'
+import Redux from './tests/reduxtest/Redux.js';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -25,7 +26,8 @@ export default class App extends Component<Props> {
   render() {
     return (
       // <ReviewScreen/>
-      <FlashCards/>
+      // <FlashCards/>
+      <Redux/>
       // <DeckScreen/>
       // <NavTest/>
     );
