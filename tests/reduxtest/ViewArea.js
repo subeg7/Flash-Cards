@@ -16,11 +16,11 @@ class ViewArea extends Component{
   }
 
   render(){
-    const {repos}=this.props;
+    // const {repos}=this.props;
     return(
       <View style={styles.container}>
         <Text>
-          {repos}
+          {this.props.text}
         </Text>
         <Button title="Capitalize" onPress={()=>{this.props.Capitalize()}}/>
       </View>
@@ -32,7 +32,7 @@ const mapStateToProps=(state)=>{
   // this.setState();
   console.warn("mapping state to props"+state.text);
   return {
-      repos:state.text
+      text:state.text
     // reduxConnectedText:state.text
   };
 };
