@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { StyleSheet, View,Text,AppRegistry,Button } from "react-native";
 import { Provider,connect } from "react-redux";
-import {TO_CAPS} from "./Action";
+import {ADD_ITEM} from "./Action";
 import List from "./Components/List";
 
 
@@ -23,7 +23,7 @@ class ViewArea extends Component{
         <Text>
           {this.props.reduxMsg}
         </Text>
-        <Button title="Add to List" onPress={()=>{this.props.Capitalize()}}/>
+        <Button title="Add to List" onPress={()=>{this.props.AddToList()}}/>
         {this.props.lists}
       </View>
   );
@@ -34,10 +34,10 @@ class ViewArea extends Component{
 
 const mapStateToProps=(state)=>{
   // this.setState();
-  console.warn("texts array recieved:"+state.texts);
+  // console.warn("texts array recieved:"+state.texts);
   let tempLists = state.texts.map( (text,index)=>{
     // console.warn("making list");
-    return <List text={text} id={++index} key={++index}/>
+    return <List text={text} id={++index} key={index} index={index}/>
   });
   return {
       reduxMsg:state.text,
@@ -47,9 +47,9 @@ const mapStateToProps=(state)=>{
 };
 
 const mapDispatchToProps=(dispatch)=>{
-  return {Capitalize: ()=>{
+  return {AddToList: ()=>{
       // console.warn("Action Dispatched");
-      dispatch(TO_CAPS)
+      dispatch(ADD_ITEM)
     }
   };
 };

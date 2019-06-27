@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import { StyleSheet,TouchableHighlight,Image, View,Text,AppRegistry,Button } from "react-native";
+// import {DEL_ITEM} from "./../Action";
+import {connect } from "react-redux";
 
-export default class List extends React.Component{
+
+ class List extends React.Component{
 
   render(){
     //
@@ -17,7 +20,7 @@ export default class List extends React.Component{
           </Text>
         </View>
 
-        <TouchableHighlight onPress={()=>this._onPress()} style={styles.buttonArea} >
+        <TouchableHighlight onPress={()=>this.props.Delete(this.props.index)} style={styles.buttonArea} >
           <Image source={require("./../../../del_icon.png")} style={styles.button} resizeMode={'contain'}/>
         </TouchableHighlight>
       </View>
@@ -28,6 +31,14 @@ export default class List extends React.Component{
     console.warn("list clicked");
   }
 }
+
+const mapDispatchToProps=(dispatch)=>{
+  return {Delete: (key)=>{
+      const DeleteAction ={type:"DEL_ITEM",id:key}
+      dispatch(DeleteAction);
+    }
+  };
+};
 
 const styles = StyleSheet.create({
   container:{
@@ -78,3 +89,5 @@ const styles = StyleSheet.create({
 
 
 });
+
+export default connect(null,mapDispatchToProps)(List);
