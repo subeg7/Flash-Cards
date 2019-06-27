@@ -1,0 +1,25 @@
+const listItems=[
+ "123sdf",
+ "sdisfs",
+ "sdgdfss",
+ "ioprecvw",
+ "s23",
+ "bds",
+ ",.s2t",
+ "32ubvas",
+ "43fsnb",
+ "23hcvb4",
+ "dwegcvb",
+ "jmsdqr",
+ "wncdwh",
+ "uyw",
+ "vxnwer",
+ "weqeq",
+ "yiyi",
+ "ajajj",
+ "bvnbn",
+ "wrwerwe",
+ "t546",
+]
+// const itemCheck = listItems."item"
+export default listItems;

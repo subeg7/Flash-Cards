@@ -1,29 +1,19 @@
 import {TO_CAPS} from "./Action";
-const initalState = {text:"Reducer inital State "}
- export  const Reducer = (state = initalState, action) => {
+import ListData from "./ListData";
 
-  // const newDuplicateState = Object.assign(state);//creates a new object
-console.warn("At reducer");
-const transitionState = {text:"redux success "}
 
-    // return transitionState;
-    console.warn("After reducer");
+const initalState = {text:"Reducer inital State ",texts:[ListData[0]]}
 
-  // switch (action) {
-  //   case TO_CAPS:{
+export  const Reducer = (state = initalState, action) => {
+
+  const targetState={};//similar to initi
+  Object.assign(targetState,state);//creates a new object
+  // console.warn("targetState"+targetState.text);
+
   if(action==TO_CAPS){
-    return transitionState;
+    targetState.texts.push(ListData[0]);
+    return targetState;
   }
-  //       // newDuplicateState.text="CAPITALIZATION SUCCESS";
-  //       console.warn("Reducer:->"+state.text);
-  //       return state;
-  //       console.warn("Reducer:->"+state.text);
-  //
-  //   }else{
-  //     console.warn("returning state from else")
+
       return state;
 };
-  //       }
-  //   default: return state;
-  // }
-// };

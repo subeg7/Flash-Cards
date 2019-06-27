@@ -2,44 +2,53 @@ import React, {Component} from 'react';
 import { StyleSheet, View,Text,AppRegistry,Button } from "react-native";
 import { Provider,connect } from "react-redux";
 import {TO_CAPS} from "./Action";
+import List from "./Components/List";
 
 
 class ViewArea extends Component{
-
-  // constructor(props){
-  //   super(props);
-  //   this.state={text:"component init text"};
-  // }
 
   _Capitalize = ()=>{
     console.warn("ready to dispatch");
   }
 
+
   render(){
-    // const {repos}=this.props;
+
+    // let lists = this.props.texts.map( (text,index)=>{
+    //   console.warn("making list");
+    //   return <List text={text} id={++index} key={++index}/>
+    // });
     return(
       <View style={styles.container}>
         <Text>
-          {this.props.text}
+          {this.props.reduxMsg}
         </Text>
-        <Button title="Capitalize" onPress={()=>{this.props.Capitalize()}}/>
+        <Button title="Add to List" onPress={()=>{this.props.Capitalize()}}/>
+        {this.props.lists}
       </View>
   );
   }
 }
+// <List text="Brown Quick Fox"/>
+// <List text="Fox Quick Brown"/>
 
 const mapStateToProps=(state)=>{
   // this.setState();
-  console.warn("mapping state to props"+state.text);
+  console.warn("texts array recieved:"+state.texts);
+  let tempLists = state.texts.map( (text,index)=>{
+    // console.warn("making list");
+    return <List text={text} id={++index} key={++index}/>
+  });
   return {
-      text:state.text
+      reduxMsg:state.text,
+      lists:tempLists
     // reduxConnectedText:state.text
   };
 };
 
 const mapDispatchToProps=(dispatch)=>{
   return {Capitalize: ()=>{
-      console.warn("Action Dispatched");
+      // console.warn("Action Dispatched");
       dispatch(TO_CAPS)
     }
   };
